@@ -2,8 +2,9 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import * as faceapi from 'face-api.js';
 import { classifyFaceShape } from '../utils/faceShape';
 
-// Load models from local 'public/models' directory to avoid CDN issues.
-const MODEL_URL = '/models';
+// Load models dynamically relative to Vite's base URL (essential for GitHub Pages)
+const MODEL_URL = import.meta.env.BASE_URL + 'models';
+
 
 
 const EMOTION_EMOJIS = {
